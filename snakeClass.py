@@ -160,7 +160,7 @@ def display_ui(game, score, record):
     myfont_bold = pygame.font.SysFont('Segoe UI', 20, True)
     text_score = myfont.render('SCORE: ', True, (0, 0, 0))
     text_score_number = myfont.render(str(score), True, (0, 0, 0))
-    text_highest = myfont.render('HIGHEST SCORE: ', True, (0, 0, 0))
+    text_highest = myfont.render('HIGH SCORE: ', True, (0, 0, 0))
     text_highest_number = myfont_bold.render(str(record), True, (0, 0, 0))
     game.gameDisplay.blit(text_score, (45, 440))
     game.gameDisplay.blit(text_score_number, (120, 440))
@@ -300,7 +300,7 @@ def run(params):
             agent.replay_new(agent.memory, params['batch_size'])
         counter_games += 1
         total_score += game.score
-        print(f'Game {counter_games}      Score: {game.score}')
+        print(f'Game: {counter_games}\tScore: {game.score}\tHigh Score: {record}')
         score_plot.append(game.score)
         counter_plot.append(counter_games)
     mean, stdev = get_mean_stdev(score_plot)
@@ -335,3 +335,4 @@ if __name__ == '__main__':
         params['train'] = False
         params['load_weights'] = True
         run(params)
+
