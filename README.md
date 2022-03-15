@@ -52,6 +52,6 @@ To fix this problem, in update_screen(), add this line.
 
 ```                              
 def update_screen():
-    pygame.display.update() <br>
+    pygame.display.update()
     pygame.event.get() # <--- Add this line ###
 ```
